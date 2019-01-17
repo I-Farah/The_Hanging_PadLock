@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs6312.locks.model.Padlock;
 
 /**
- * This is a class to test the functionality of a Padlock class method
+ * This is a class to test the functionality of a Padlock class Spin left method
  * 
  * @author Ibrahim Tonifarah
  * @version 1/17/2019
