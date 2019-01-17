@@ -36,5 +36,37 @@ class PadlockWhenSpinLeft {
 		int results = simpleLock.getCurrentValue();
 		assertEquals(31, results);
 	}
-
+	
+	/**
+	 * Test to be sure that spinning the padlock 50 units to the left from 0 will leave it at 0
+	 */
+	@Test
+	void testWhenMoving50LeftOf0Is0() {
+		Padlock simpleLock = new Padlock(3, 1, 40);
+		simpleLock.spinLeft(50);
+		int results = simpleLock.getCurrentValue();
+		assertEquals(0, results);
+	}
+	
+	/**
+	 * Test to be sure that spinning the padlock 49 units to the left from 0 will leave it at 49
+	 */
+	@Test
+	void testWhenMoving49LeftOf0Is49() {
+		Padlock simpleLock = new Padlock(3, 1, 40);
+		simpleLock.spinLeft(49);
+		int results = simpleLock.getCurrentValue();
+		assertEquals(49, results);
+	}
+	
+	/**
+	 * Test to be sure that spinning the padlock 165 units to the left from 0 will leave it at 15
+	 */
+	@Test
+	void testWhenMoving165LeftOf0Is15() {
+		Padlock simpleLock = new Padlock(3, 1, 40);
+		simpleLock.spinLeft(165);
+		int results = simpleLock.getCurrentValue();
+		assertEquals(15, results);
+	}
 }

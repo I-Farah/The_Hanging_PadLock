@@ -52,7 +52,14 @@ public class Padlock {
 	 * @param ticks is the number of ticks to be moved on the dials face
 	 */
 	public void spinLeft(int ticks) {
-		this.currentLockNumber += ticks;
+		if (ticks <= 49) {
+			this.currentLockNumber = ticks;
+		} else {
+			while (ticks > 49) {
+				ticks = ticks - 50;
+			} 
+			this.currentLockNumber = ticks;
+		}
 	}
 
 	/**
