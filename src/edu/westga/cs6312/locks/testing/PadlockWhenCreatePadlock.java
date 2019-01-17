@@ -39,13 +39,13 @@ public class PadlockWhenCreatePadlock {
 
 	/**
 	 * Test to see if the 3-parameter correctly creates a Padlock with a combination
-	 * larger and not in order. Testing 56, 33, 22297
+	 * larger and not in order. Testing 49, 33, 40
 	 * 
 	 */
 	@Test
-	public void testPadLockWithCombination563322297() {
-		Padlock plainLock = new Padlock(56, 33, 22297);
+	public void testPadLockWithCombination493340() {
+		Padlock plainLock = new Padlock(49, 33, 40);
 		String result = plainLock.toString();
-		assertEquals("This Padlock has the combination (56, 33, 22297), is currently at 0, and cannot be opened", result);
+		assertEquals("This Padlock has the combination (49, 33, 40), is currently at 0, and cannot be opened", result);
 	}
 }

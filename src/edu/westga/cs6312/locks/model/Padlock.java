@@ -45,4 +45,23 @@ public class Padlock {
 				this.currentLockNumber);
 	}
 
+	/**
+	 * Allows to spin the dial on the Padlock to the left incrementing the number on
+	 * the dials face
+	 * 
+	 * @param ticks is the number of ticks to be moved on the dials face
+	 */
+	public void spinLeft(int ticks) {
+		this.currentLockNumber += ticks;
+	}
+
+	/**
+	 * Returns the current value on the Padlock
+	 * 
+	 * @return current lock value
+	 */
+	public int getCurrentValue() {
+		return this.currentLockNumber;
+	}
+
 }
