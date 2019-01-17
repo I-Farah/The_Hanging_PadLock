@@ -25,15 +25,27 @@ public class PadlockWhenCreatePadlock {
 		String result = plainLock.toString();
 		assertEquals("This Padlock has the combination (1, 2, 3), is currently at 0, and cannot be opened", result);
 	}
-	
+
 	/**
-	 * Test to see if the 3-parameter correctly creates a Padlock with combination
-	 * (4, 5, 6)
+	 * Test to see if the 3-parameter correctly creates a Padlock with a different
+	 * combination other than (1, 2, 3) so we will test (7, 9, 11)
 	 */
 	@Test
-	public void testPadLockWithCombination456() {
-		Padlock plainLock = new Padlock(4, 5, 6);
+	public void testPadLockWithCombination7911() {
+		Padlock plainLock = new Padlock(7, 9, 11);
 		String result = plainLock.toString();
-		assertEquals("This Padlock has the combination (4, 5, 6), is currently at 0, and cannot be opened", result);
+		assertEquals("This Padlock has the combination (7, 9, 11), is currently at 0, and cannot be opened", result);
+	}
+
+	/**
+	 * Test to see if the 3-parameter correctly creates a Padlock with a combination
+	 * larger and not in order. Testing 56, 33, 22297
+	 * 
+	 */
+	@Test
+	public void testPadLockWithCombination563322297() {
+		Padlock plainLock = new Padlock(56, 33, 22297);
+		String result = plainLock.toString();
+		assertEquals("This Padlock has the combination (56, 33, 22297), is currently at 0, and cannot be opened", result);
 	}
 }
