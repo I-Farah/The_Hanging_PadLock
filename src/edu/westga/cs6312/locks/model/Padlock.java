@@ -57,14 +57,14 @@ public class Padlock {
 		} else {
 			while (ticks > 49) {
 				ticks = ticks - 50;
-			} 
+			}
 			this.currentLockNumber = ticks;
 		}
 	}
-	
+
 	/**
-	 * Allows to spin the dial on the Padlock to the right incrementing the number on
-	 * the dials face
+	 * Allows to spin the dial on the Padlock to the right incrementing the number
+	 * on the dials face
 	 * 
 	 * @param ticks is the number of ticks to be moved on the dials face
 	 */
@@ -74,8 +74,14 @@ public class Padlock {
 		} else {
 			while (ticks > 50) {
 				ticks = ticks - 50;
-			} 
+			}
 			this.currentLockNumber = 50 - ticks;
+		}
+
+		if (this.getCurrentValue() == this.lockCombinationNumber1) {
+			this.canLockOpen = true;
+		} else {
+			this.canLockOpen = false;
 		}
 	}
 
@@ -86,6 +92,17 @@ public class Padlock {
 	 */
 	public int getCurrentValue() {
 		return this.currentLockNumber;
+	}
+
+	/**
+	 * Checks if the currentLockNumber equals the first lock combination number after the right spin
+	 * 
+	 * @param ticks number of ticks to the right
+	 * @return true only if the first condition is met
+	 */
+	public boolean isFirstConditionMet(int ticks) {
+		this.spinRight(ticks);
+		return this.canLockOpen;
 	}
 
 }
