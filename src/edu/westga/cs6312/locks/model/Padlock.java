@@ -36,6 +36,8 @@ public class Padlock {
 	 * Returns a String representation of the padlock object stating the 3 number
 	 * combination, the number it is currently pointing to and if the lock can be
 	 * opened
+	 * 
+	 * @return string representation of padlock object
 	 */
 	public String toString() {
 		return String.format("This Padlock has the combination (%d, %d, %d), is currently at %d, and cannot be opened",
