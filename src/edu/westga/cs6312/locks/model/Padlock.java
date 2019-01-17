@@ -60,6 +60,13 @@ public class Padlock {
 			}
 			this.currentLockNumber = ticks;
 		}
+		
+		if (this.getCurrentValue() == this.lockCombinationNumber2) {
+			this.canLockOpen = true;
+		} else {
+			this.canLockOpen = false;
+		}
+		
 	}
 
 	/**
@@ -102,6 +109,19 @@ public class Padlock {
 	 */
 	public boolean isFirstConditionMet(int ticks) {
 		this.spinRight(ticks);
+		return this.canLockOpen;
+	}
+	
+	/**
+	 * Checks if the currentLockNumber equals the second lock combination number after the left spin
+	 * 
+	 * @param ticks number of ticks to the left
+	 * @return true only if the second condition is met
+	 */
+	public boolean isSecondConditionMet(int ticks) {
+		if (this.canLockOpen) {
+			this.spinLeft(ticks);
+		}
 		return this.canLockOpen;
 	}
 
