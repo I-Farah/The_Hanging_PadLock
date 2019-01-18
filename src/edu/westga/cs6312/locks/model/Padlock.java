@@ -15,6 +15,9 @@ public class Padlock {
 	private int lockCombinationNumber3;
 	private int currentLockNumber;
 	private boolean canLockOpen;
+	private boolean firstConditionMet;
+	private boolean secondConditionMet;
+	private boolean thirdConditionMet;
 
 	/**
 	 * This class instantiates the instance variables by setting values for a lock
@@ -30,6 +33,9 @@ public class Padlock {
 		this.lockCombinationNumber3 = lockCombinationNumber3;
 		this.currentLockNumber = 0;
 		this.canLockOpen = false;
+		this.firstConditionMet = false;
+		this.secondConditionMet = false;
+		this.thirdConditionMet = false;
 	}
 
 	/**
@@ -97,11 +103,14 @@ public class Padlock {
 			this.currentLockNumber += (50 - ticks);
 		}
 		
-		if (this.getCurrentValue() == this.lockCombinationNumber1) {
+		if (this.getCurrentValue() == this.lockCombinationNumber2 && this.canLockOpen) {
+			this.canLockOpen = true;
+		} else if (this.getCurrentValue() == this.lockCombinationNumber1) {
 			this.canLockOpen = true;
 		} else {
 			this.canLockOpen = false;
 		}
+		
 	}
 
 	/**
@@ -133,6 +142,19 @@ public class Padlock {
 	public boolean isSecondConditionMet(int ticks) {
 		if (this.canLockOpen) {
 			this.spinLeft(ticks);
+		}
+		return this.canLockOpen;
+	}
+	
+	/**
+	 * Checks if the currentLockNumber equals the second lock combination number after the left spin
+	 * 
+	 * @param ticks number of ticks to the left
+	 * @return true only if the third condition is met
+	 */
+	public boolean isThirdConditionMet(int ticks) {
+		if (this.canLockOpen) {
+			this.spinRight(ticks);
 		}
 		return this.canLockOpen;
 	}
