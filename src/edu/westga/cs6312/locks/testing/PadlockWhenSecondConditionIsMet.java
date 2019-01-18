@@ -17,46 +17,50 @@ import edu.westga.cs6312.locks.model.Padlock;
 class PadlockWhenSecondConditionIsMet {
 
 	/**
-	 * Test to be sure that the first condition is checked and then the second
-	 * condition produces accurate results with 20
+	 * Test to be sure that the first condition is met with 42 and then the second
+	 * condition produces met with 12
 	 */
 	@Test
-	public void testIsSecondConditionMetWith20() {
+	public void testIsSecondConditionMetWith12() {
 		Padlock simpleLock = new Padlock(8, 20, 15);
-		boolean results = simpleLock.isSecondConditionMet(20);
-		assertEquals(false, results);
-	}
-
-	/**
-	 * Test to be sure that the first condition is checked and then the second
-	 * condition produces accurate results with 30
-	 */
-	@Test
-	public void testIsSecondConditionMetWith30() {
-		Padlock simpleLock = new Padlock(8, 20, 15);
-		boolean results = simpleLock.isSecondConditionMet(30);
-		assertEquals(false, results);
-	}
-
-	/**
-	 * Test to be sure that the first condition is checked and then the second
-	 * condition produces accurate results with 27
-	 */
-	@Test
-	public void testIsSecondConditionMetWith27() {
-		Padlock simpleLock = new Padlock(8, 20, 15);
-		boolean results = simpleLock.isSecondConditionMet(27);
-		assertEquals(false, results);
+		simpleLock.isFirstConditionMet(42);
+		boolean results = simpleLock.isSecondConditionMet(12);
+		assertEquals(true, results);
 	}
 	
 	/**
-	 * Test to be sure that the first condition is checked and then the second
-	 * condition produces accurate results with 5
+	 * Test to be sure that the first condition is met with 42 and then the second
+	 * condition is met with 20
 	 */
 	@Test
-	public void testIsSecondConditionMetWith5() {
-		Padlock simpleLock = new Padlock(8, 20, 15);
-		boolean results = simpleLock.isSecondConditionMet(5);
+	public void testIsSecondConditionMetWith20() {
+		Padlock simpleLock = new Padlock(8, 25, 15);
+		simpleLock.isFirstConditionMet(42);
+		boolean results = simpleLock.isSecondConditionMet(17);
+		assertEquals(true, results);
+	}
+	
+	/**
+	 * Test to be sure that the first condition is met with 41 and then the second
+	 * condition is met with 1
+	 */
+	@Test
+	public void testIsSecondConditionMetWith1() {
+		Padlock simpleLock = new Padlock(9, 10, 15);
+		simpleLock.isFirstConditionMet(41);
+		boolean results = simpleLock.isSecondConditionMet(1);
+		assertEquals(true, results);
+	}
+	
+	/**
+	 * Test to be sure that the first condition is met with 41 and then the second
+	 * condition is not met with 2
+	 */
+	@Test
+	public void testIsSecondConditionMetWith2() {
+		Padlock simpleLock = new Padlock(9, 10, 15);
+		simpleLock.isFirstConditionMet(41);
+		boolean results = simpleLock.isSecondConditionMet(2);
 		assertEquals(false, results);
 	}
 
