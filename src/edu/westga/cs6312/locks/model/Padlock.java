@@ -52,15 +52,21 @@ public class Padlock {
 	 * @param ticks is the number of ticks to be moved on the dials face
 	 */
 	public void spinLeft(int ticks) {
-		if (ticks <= 49) {
+		if (this.currentLockNumber == 0) {
 			this.currentLockNumber = ticks;
+			
+			while (this.currentLockNumber > 49) {
+				this.currentLockNumber = this.currentLockNumber - 50;
+			}
+		} else if (ticks <= 49) {
+			this.currentLockNumber += ticks;
 		} else {
 			while (ticks > 49) {
 				ticks = ticks - 50;
 			}
-			this.currentLockNumber = ticks;
+			this.currentLockNumber += ticks;
 		}
-		
+
 		if (this.getCurrentValue() == this.lockCombinationNumber2) {
 			this.canLockOpen = true;
 		} else {
@@ -76,15 +82,21 @@ public class Padlock {
 	 * @param ticks is the number of ticks to be moved on the dials face
 	 */
 	public void spinRight(int ticks) {
-		if (ticks <= 50) {
+		if (this.currentLockNumber == 0) {
 			this.currentLockNumber = 50 - ticks;
+			
+			while (this.currentLockNumber < 0) {
+				this.currentLockNumber = 50 + this.currentLockNumber;
+			}
+		} else if (ticks <= 50) {
+			this.currentLockNumber += (50 - ticks);
 		} else {
 			while (ticks > 50) {
 				ticks = ticks - 50;
 			}
-			this.currentLockNumber = 50 - ticks;
+			this.currentLockNumber += (50 - ticks);
 		}
-
+		
 		if (this.getCurrentValue() == this.lockCombinationNumber1) {
 			this.canLockOpen = true;
 		} else {
