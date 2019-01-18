@@ -73,10 +73,8 @@ public class Padlock {
 			this.currentLockNumber += ticks;
 		}
 
-		if (this.getCurrentValue() == this.lockCombinationNumber2) {
-			this.canLockOpen = true;
-		} else {
-			this.canLockOpen = false;
+		if (this.getCurrentValue() == this.lockCombinationNumber2 && this.firstConditionMet) {
+			this.secondConditionMet = true;
 		}
 		
 	}
@@ -103,14 +101,11 @@ public class Padlock {
 			this.currentLockNumber += (50 - ticks);
 		}
 		
-		if (this.getCurrentValue() == this.lockCombinationNumber2 && this.canLockOpen) {
-			this.canLockOpen = true;
+		if (this.getCurrentValue() == this.lockCombinationNumber2 && this.firstConditionMet && this.secondConditionMet) {
+			this.thirdConditionMet = true;
 		} else if (this.getCurrentValue() == this.lockCombinationNumber1) {
-			this.canLockOpen = true;
-		} else {
-			this.canLockOpen = false;
-		}
-		
+			this.firstConditionMet = true;
+		} 
 	}
 
 	/**
@@ -130,7 +125,7 @@ public class Padlock {
 	 */
 	public boolean isFirstConditionMet(int ticks) {
 		this.spinRight(ticks);
-		return this.canLockOpen;
+		return this.firstConditionMet;
 	}
 	
 	/**
@@ -140,10 +135,10 @@ public class Padlock {
 	 * @return true only if the second condition is met
 	 */
 	public boolean isSecondConditionMet(int ticks) {
-		if (this.canLockOpen) {
+		if (this.firstConditionMet) {
 			this.spinLeft(ticks);
 		}
-		return this.canLockOpen;
+		return this.secondConditionMet;
 	}
 	
 	/**
@@ -153,10 +148,10 @@ public class Padlock {
 	 * @return true only if the third condition is met
 	 */
 	public boolean isThirdConditionMet(int ticks) {
-		if (this.canLockOpen) {
+		if (this.firstConditionMet && this.secondConditionMet) {
 			this.spinRight(ticks);
 		}
-		return this.canLockOpen;
+		return this.thirdConditionMet;
 	}
 
 }
