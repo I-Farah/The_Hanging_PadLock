@@ -14,7 +14,6 @@ public class Padlock {
 	private int lockCombinationNumber2;
 	private int lockCombinationNumber3;
 	private int currentLockNumber;
-	private boolean canLockOpen;
 	private boolean firstConditionMet;
 	private boolean secondConditionMet;
 	private boolean thirdConditionMet;
@@ -32,7 +31,6 @@ public class Padlock {
 		this.lockCombinationNumber2 = lockCombinationNumber2;
 		this.lockCombinationNumber3 = lockCombinationNumber3;
 		this.currentLockNumber = 0;
-		this.canLockOpen = false;
 		this.firstConditionMet = false;
 		this.secondConditionMet = false;
 		this.thirdConditionMet = false;
@@ -60,7 +58,7 @@ public class Padlock {
 	public void spinLeft(int ticks) {
 		if (this.currentLockNumber == 0) {
 			this.currentLockNumber = ticks;
-			
+
 		} else if (ticks <= 49) {
 			this.currentLockNumber += ticks;
 		} else {
@@ -75,7 +73,7 @@ public class Padlock {
 		}
 		if (this.currentLockNumber == this.lockCombinationNumber2 && this.firstConditionMet) {
 			this.secondConditionMet = true;
-		}	
+		}
 	}
 
 	/**
@@ -87,7 +85,7 @@ public class Padlock {
 	public void spinRight(int ticks) {
 		if (this.currentLockNumber == 0) {
 			this.currentLockNumber = 50 - ticks;
-			
+
 		} else if (ticks <= 50) {
 			this.currentLockNumber -= ticks;
 		} else {
@@ -96,16 +94,17 @@ public class Padlock {
 			}
 			this.currentLockNumber += (50 - ticks);
 		}
-		
+
 		while (this.currentLockNumber < 0) {
 			this.currentLockNumber = 50 + this.currentLockNumber;
 		}
-		
-		if (this.currentLockNumber == this.lockCombinationNumber3 && this.firstConditionMet && this.secondConditionMet) {
+
+		if (this.currentLockNumber == this.lockCombinationNumber3 && this.firstConditionMet
+				&& this.secondConditionMet) {
 			this.thirdConditionMet = true;
 		} else if (this.currentLockNumber == this.lockCombinationNumber1) {
 			this.firstConditionMet = true;
-		} 
+		}
 	}
 
 	/**
@@ -118,7 +117,8 @@ public class Padlock {
 	}
 
 	/**
-	 * Checks if the currentLockNumber equals the first lock combination number after the right spin
+	 * Checks if the currentLockNumber equals the first lock combination number
+	 * after the right spin
 	 * 
 	 * @param ticks number of ticks to the right
 	 * @return true only if the first condition is met
@@ -127,9 +127,10 @@ public class Padlock {
 		this.spinRight(ticks);
 		return this.firstConditionMet;
 	}
-	
+
 	/**
-	 * Checks if the currentLockNumber equals the second lock combination number after the left spin
+	 * Checks if the currentLockNumber equals the second lock combination number
+	 * after the left spin
 	 * 
 	 * @param ticks number of ticks to the left
 	 * @return true only if the second condition is met
@@ -138,9 +139,10 @@ public class Padlock {
 		this.spinLeft(ticks);
 		return this.secondConditionMet;
 	}
-	
+
 	/**
-	 * Checks if the currentLockNumber equals the third lock combination number after the left spin
+	 * Checks if the currentLockNumber equals the third lock combination number
+	 * after the left spin
 	 * 
 	 * @param ticks number of ticks to the left
 	 * @return true only if the third condition is met
@@ -148,6 +150,19 @@ public class Padlock {
 	public boolean isThirdConditionMet(int ticks) {
 		this.spinRight(ticks);
 		return this.thirdConditionMet;
+	}
+
+	/**
+	 * Returns true when the first, second and third conditions are met
+	 * 
+	 * @return true only if all conditions are met
+	 */
+	public boolean isOpen() {
+		if (this.firstConditionMet && this.secondConditionMet && this.thirdConditionMet) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }
