@@ -61,9 +61,6 @@ public class Padlock {
 		if (this.currentLockNumber == 0) {
 			this.currentLockNumber = ticks;
 			
-			while (this.currentLockNumber > 49) {
-				this.currentLockNumber = this.currentLockNumber - 50;
-			}
 		} else if (ticks <= 49) {
 			this.currentLockNumber += ticks;
 		} else {
@@ -73,10 +70,12 @@ public class Padlock {
 			this.currentLockNumber += ticks;
 		}
 
+		while (this.currentLockNumber > 49) {
+			this.currentLockNumber = this.currentLockNumber - 50;
+		}
 		if (this.currentLockNumber == this.lockCombinationNumber2 && this.firstConditionMet) {
 			this.secondConditionMet = true;
-		}
-		
+		}	
 	}
 
 	/**
@@ -136,9 +135,7 @@ public class Padlock {
 	 * @return true only if the second condition is met
 	 */
 	public boolean isSecondConditionMet(int ticks) {
-		if (this.firstConditionMet) {
-			this.spinLeft(ticks);
-		}
+		this.spinLeft(ticks);
 		return this.secondConditionMet;
 	}
 	

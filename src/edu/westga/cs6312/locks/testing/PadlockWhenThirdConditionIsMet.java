@@ -27,4 +27,40 @@ class PadlockWhenThirdConditionIsMet {
 		boolean results = simpleLock.isThirdConditionMet(5);
 		assertEquals(true, results);
 	}
+	
+	/**
+	 * Test to be sure that the third condition is met with 10 and returns true
+	 */
+	@Test
+	public void testIsThirdConditionMetWith10() {
+		Padlock simpleLock = new Padlock(8, 20, 10);
+		simpleLock.isFirstConditionMet(42);
+		simpleLock.isSecondConditionMet(12);
+		boolean results = simpleLock.isThirdConditionMet(10);
+		assertEquals(true, results);
+	}
+	
+	/**
+	 * Test to be sure that the third condition is met with 21 and returns true
+	 */
+	@Test
+	public void testIsThirdConditionMetWith21() {
+		Padlock simpleLock = new Padlock(8, 20, 49);
+		simpleLock.isFirstConditionMet(42);
+		simpleLock.isSecondConditionMet(12);
+		boolean results = simpleLock.isThirdConditionMet(21);
+		assertEquals(true, results);
+	}
+	
+	/**
+	 * Test to be sure that the third condition is not met with 20 and returns true
+	 */
+	@Test
+	public void testIsThirdConditionMetWith20() {
+		Padlock simpleLock = new Padlock(8, 20, 49);
+		simpleLock.isFirstConditionMet(42);
+		simpleLock.isSecondConditionMet(12);
+		boolean results = simpleLock.isThirdConditionMet(20);
+		assertEquals(false, results);
+	}
 }
