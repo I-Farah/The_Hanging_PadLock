@@ -73,7 +73,7 @@ public class Padlock {
 			this.currentLockNumber += ticks;
 		}
 
-		if (this.getCurrentValue() == this.lockCombinationNumber2 && this.firstConditionMet) {
+		if (this.currentLockNumber == this.lockCombinationNumber2 && this.firstConditionMet) {
 			this.secondConditionMet = true;
 		}
 		
@@ -89,11 +89,8 @@ public class Padlock {
 		if (this.currentLockNumber == 0) {
 			this.currentLockNumber = 50 - ticks;
 			
-			while (this.currentLockNumber < 0) {
-				this.currentLockNumber = 50 + this.currentLockNumber;
-			}
 		} else if (ticks <= 50) {
-			this.currentLockNumber += (50 - ticks);
+			this.currentLockNumber -= ticks;
 		} else {
 			while (ticks > 50) {
 				ticks = ticks - 50;
@@ -101,9 +98,13 @@ public class Padlock {
 			this.currentLockNumber += (50 - ticks);
 		}
 		
-		if (this.getCurrentValue() == this.lockCombinationNumber2 && this.firstConditionMet && this.secondConditionMet) {
+		while (this.currentLockNumber < 0) {
+			this.currentLockNumber = 50 + this.currentLockNumber;
+		}
+		
+		if (this.currentLockNumber == this.lockCombinationNumber3 && this.firstConditionMet && this.secondConditionMet) {
 			this.thirdConditionMet = true;
-		} else if (this.getCurrentValue() == this.lockCombinationNumber1) {
+		} else if (this.currentLockNumber == this.lockCombinationNumber1) {
 			this.firstConditionMet = true;
 		} 
 	}
@@ -142,15 +143,13 @@ public class Padlock {
 	}
 	
 	/**
-	 * Checks if the currentLockNumber equals the second lock combination number after the left spin
+	 * Checks if the currentLockNumber equals the third lock combination number after the left spin
 	 * 
 	 * @param ticks number of ticks to the left
 	 * @return true only if the third condition is met
 	 */
 	public boolean isThirdConditionMet(int ticks) {
-		if (this.firstConditionMet && this.secondConditionMet) {
-			this.spinRight(ticks);
-		}
+		this.spinRight(ticks);
 		return this.thirdConditionMet;
 	}
 
