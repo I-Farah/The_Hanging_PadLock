@@ -18,13 +18,14 @@ class PadlockWhenSecondConditionIsMet {
 
 	/**
 	 * Test to be sure that the first condition is met with 42 and then the second
-	 * condition produces met with 12
+	 * condition is met with 12
 	 */
 	@Test
 	public void testIsSecondConditionMetWith12() {
 		Padlock simpleLock = new Padlock(8, 20, 15);
-		simpleLock.isFirstConditionMet(42);
-		boolean results = simpleLock.isSecondConditionMet(12);
+		simpleLock.spinRight(42);
+		simpleLock.spinLeft(12);
+		boolean results = simpleLock.isSecondConditionMet();
 		assertEquals(true, results);
 	}
 	
@@ -35,8 +36,9 @@ class PadlockWhenSecondConditionIsMet {
 	@Test
 	public void testIsSecondConditionMetWith20() {
 		Padlock simpleLock = new Padlock(8, 25, 15);
-		simpleLock.isFirstConditionMet(42);
-		boolean results = simpleLock.isSecondConditionMet(17);
+		simpleLock.spinRight(42);
+		simpleLock.spinLeft(17);
+		boolean results = simpleLock.isSecondConditionMet();
 		assertEquals(true, results);
 	}
 	
@@ -47,8 +49,9 @@ class PadlockWhenSecondConditionIsMet {
 	@Test
 	public void testIsSecondConditionMetWith1() {
 		Padlock simpleLock = new Padlock(9, 10, 15);
-		simpleLock.isFirstConditionMet(41);
-		boolean results = simpleLock.isSecondConditionMet(1);
+		simpleLock.spinRight(41);
+		simpleLock.spinLeft(1);
+		boolean results = simpleLock.isSecondConditionMet();
 		assertEquals(true, results);
 	}
 	
@@ -59,8 +62,9 @@ class PadlockWhenSecondConditionIsMet {
 	@Test
 	public void testIsSecondConditionMetWith2() {
 		Padlock simpleLock = new Padlock(9, 10, 15);
-		simpleLock.isFirstConditionMet(41);
-		boolean results = simpleLock.isSecondConditionMet(2);
+		simpleLock.spinRight(41);
+		simpleLock.spinLeft(2);
+		boolean results = simpleLock.isSecondConditionMet();
 		assertEquals(false, results);
 	}
 

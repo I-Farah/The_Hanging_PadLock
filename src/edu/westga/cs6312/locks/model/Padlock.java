@@ -120,11 +120,9 @@ public class Padlock {
 	 * Checks if the currentLockNumber equals the first lock combination number
 	 * after the right spin
 	 * 
-	 * @param ticks number of ticks to the right
 	 * @return true only if the first condition is met
 	 */
-	public boolean isFirstConditionMet(int ticks) {
-		this.spinRight(ticks);
+	public boolean isFirstConditionMet() {
 		return this.firstConditionMet;
 	}
 
@@ -132,11 +130,9 @@ public class Padlock {
 	 * Checks if the currentLockNumber equals the second lock combination number
 	 * after the left spin
 	 * 
-	 * @param ticks number of ticks to the left
 	 * @return true only if the second condition is met
 	 */
-	public boolean isSecondConditionMet(int ticks) {
-		this.spinLeft(ticks);
+	public boolean isSecondConditionMet() {
 		return this.secondConditionMet;
 	}
 
@@ -144,11 +140,9 @@ public class Padlock {
 	 * Checks if the currentLockNumber equals the third lock combination number
 	 * after the left spin
 	 * 
-	 * @param ticks number of ticks to the left
 	 * @return true only if the third condition is met
 	 */
-	public boolean isThirdConditionMet(int ticks) {
-		this.spinRight(ticks);
+	public boolean isThirdConditionMet() {
 		return this.thirdConditionMet;
 	}
 
