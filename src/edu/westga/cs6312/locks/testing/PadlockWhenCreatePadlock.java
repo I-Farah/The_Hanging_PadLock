@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs6312.locks.model.Padlock;
 
 /**
- * This is a class to test the Padlock class
+ * This is a class to test the Padlock class toString method
  * 
  * @author Ibrahim Tonifarah
  * @version 1/17/2019

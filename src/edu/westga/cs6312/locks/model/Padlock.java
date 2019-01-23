@@ -17,6 +17,7 @@ public class Padlock {
 	private boolean firstConditionMet;
 	private boolean secondConditionMet;
 	private boolean thirdConditionMet;
+	private boolean canLockOpen;
 
 	/**
 	 * This class instantiates the instance variables by setting values for a lock
@@ -34,6 +35,7 @@ public class Padlock {
 		this.firstConditionMet = false;
 		this.secondConditionMet = false;
 		this.thirdConditionMet = false;
+		this.canLockOpen = false;
 	}
 
 	/**
@@ -77,7 +79,7 @@ public class Padlock {
 	}
 
 	/**
-	 * Allows to spin the dial on the Padlock to the right incrementing the number
+	 * Allows to spin the dial on the Padlock to the right reducing the number
 	 * on the dials face
 	 * 
 	 * @param ticks is the number of ticks to be moved on the dials face
@@ -138,7 +140,7 @@ public class Padlock {
 
 	/**
 	 * Checks if the currentLockNumber equals the third lock combination number
-	 * after the left spin
+	 * after another right spin
 	 * 
 	 * @return true only if the third condition is met
 	 */
@@ -153,10 +155,8 @@ public class Padlock {
 	 */
 	public boolean isOpen() {
 		if (this.firstConditionMet && this.secondConditionMet && this.thirdConditionMet) {
-			return true;
-		} else {
-			return false;
-		}
+			this.canLockOpen = true;
+		} 
+		return this.canLockOpen;
 	}
-
 }
