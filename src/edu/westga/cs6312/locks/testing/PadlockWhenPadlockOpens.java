@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs6312.locks.model.Padlock;
 
 /**
- * This is a class to test the functionality of the Padlock isThirdConditionMet
+ * This is a class to test the functionality of the Padlock isOpen
  * method
  * 
  * @author Ibrahim Tonifarah
@@ -74,10 +74,10 @@ class PadlockWhenPadlockOpens {
 
 	/**
 	 * Test to be sure that the lock does not open when second condition isn't met
-	 * with spin right 42, spin left 13 and spin right 30
+	 * with spin right 42, spin left 13 and spin right 5
 	 */
 	@Test
-	public void testIsOpenWithRight42Left13Right30() {
+	public void testIsOpenWithRight42Left13Right5() {
 		Padlock simpleLock = new Padlock(8, 20, 40);
 		simpleLock.spinRight(42);
 		simpleLock.spinLeft(13);
