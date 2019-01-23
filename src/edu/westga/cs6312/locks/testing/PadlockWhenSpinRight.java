@@ -13,7 +13,7 @@ import edu.westga.cs6312.locks.model.Padlock;
  * @version 1/17/2019
  * 
  */
-class PadLockWhenSpinRight {
+class PadlockWhenSpinRight {
 
 	/**
 	 * Test to be sure that spinning the padlock 10 units to the right from 0 will leave it at 40
