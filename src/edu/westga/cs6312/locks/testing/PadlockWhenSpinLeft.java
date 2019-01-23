@@ -19,7 +19,7 @@ class PadlockWhenSpinLeft {
 	 * Test to be sure that spinning the padlock 10 units to the left from 0 will leave it at 10
 	 */
 	@Test
-	void testWhenMoving10LeftOf0Is10() {
+	public void testWhenMoving10LeftOf0Is10() {
 		Padlock simpleLock = new Padlock(8, 20, 15);
 		simpleLock.spinLeft(10);
 		int results = simpleLock.getCurrentValue();
@@ -30,7 +30,7 @@ class PadlockWhenSpinLeft {
 	 * Test to be sure that spinning the padlock 31 units to the left from 0 will leave it at 31
 	 */
 	@Test
-	void testWhenMoving31LeftOf0Is31() {
+	public void testWhenMoving31LeftOf0Is31() {
 		Padlock simpleLock = new Padlock(3, 1, 40);
 		simpleLock.spinLeft(31);
 		int results = simpleLock.getCurrentValue();
@@ -41,7 +41,7 @@ class PadlockWhenSpinLeft {
 	 * Test to be sure that spinning the padlock 50 units to the left from 0 will leave it at 0
 	 */
 	@Test
-	void testWhenMoving50LeftOf0Is0() {
+	public void testWhenMoving50LeftOf0Is0() {
 		Padlock simpleLock = new Padlock(3, 1, 40);
 		simpleLock.spinLeft(50);
 		int results = simpleLock.getCurrentValue();
@@ -52,7 +52,7 @@ class PadlockWhenSpinLeft {
 	 * Test to be sure that spinning the padlock 49 units to the left from 0 will leave it at 49
 	 */
 	@Test
-	void testWhenMoving49LeftOf0Is49() {
+	public void testWhenMoving49LeftOf0Is49() {
 		Padlock simpleLock = new Padlock(3, 1, 40);
 		simpleLock.spinLeft(49);
 		int results = simpleLock.getCurrentValue();
@@ -63,7 +63,7 @@ class PadlockWhenSpinLeft {
 	 * Test to be sure that spinning the padlock 165 units to the left from 0 will leave it at 15
 	 */
 	@Test
-	void testWhenMoving165LeftOf0Is15() {
+	public void testWhenMoving165LeftOf0Is15() {
 		Padlock simpleLock = new Padlock(3, 1, 40);
 		simpleLock.spinLeft(165);
 		int results = simpleLock.getCurrentValue();
