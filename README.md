@@ -1,5 +1,5 @@
-# Automated Testing With JUnit - PadLock
-
+# Automated Testing With JUnit - PadLock   
+![padlock](https://user-images.githubusercontent.com/36029803/51781888-5fe9b300-20ed-11e9-8240-fd1752e22a0a.jpg)
 #### Project Objective 
   1. Implement unit tests using the JUnit Testing Framework
   2. Analyze expected results to confirm correct functionality 
@@ -10,7 +10,7 @@
   such that the user will spin the number dial either to the left (counterclockwise) or right (clockwise).  
   In order to open the lock, the user must turn the dial to the right to get to the first number, then turn the dial to the  
   left to get to the second number, then finally turn the dial to the right to get to the third number.  
-  
+
   ##### Functionality
   - 3 instance variables for the dial numbers that would be used as the combination.
   - 1 instance variable that represents the number being pointed to on the lock.
@@ -24,6 +24,12 @@
   - isSecondConditionMet - returns true only if second condition is met
   - isThirdConditionMet - returns true if only if third condition is met
   - isOpen - returns true if all conditions are met
+  
+![padlock2](https://user-images.githubusercontent.com/36029803/51781853-ca4e2380-20ec-11e9-96fe-65f3e3fddeb4.png)
+
+  #### Test Package With Test Classes For Each Method
+  ---
+![padlock3](https://user-images.githubusercontent.com/36029803/51781857-d934d600-20ec-11e9-8f09-42b19f160815.jpg)
 
 #### Key Points
 - PadLock class and its functionality placed into the model package and test classes where placed in testing package
