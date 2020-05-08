@@ -1,4 +1,4 @@
-# The Hanging PadLock With JUnit - PadLock   
+# The Hanging PadLock With JUnit    
 ![padlock](https://user-images.githubusercontent.com/36029803/51781888-5fe9b300-20ed-11e9-8240-fd1752e22a0a.jpg)
 #### Project Objective 
   1. Implement unit tests using the JUnit Testing Framework
